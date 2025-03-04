@@ -124,9 +124,8 @@ STATEMENT_ID=$(aws redshift-data execute-statement \
     --sql "SELECT * FROM sys_query_history" \
     --workgroup-name my-workgroup \
     --database dev \
-    --idc \
     --profile my-tti-profile | jq -r ".Id")
-aws redshift-data get-statement-result --id $STATEMENT_ID --idc --profile my-tti-profile
+aws redshift-data get-statement-result --id $STATEMENT_ID --profile my-tti-profile
 ```
 
 If your IAM Identity Center user has also Amazon Q business applications, you can access the Amazon Q business API. For example, to retrieve all conversations of the user for an Amazon Q business application with the ID `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`, use:
